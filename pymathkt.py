@@ -5,16 +5,17 @@
 # ====================
 # Programmed By: Korakot Rakhuang 
 # Purpose: for practice the Python2 skill.
-# Process: 
-# 	1. Determine number of questions.
-# 	2. Determine math symbols. (+, -)
-# 	3. Generate question by random number and symbols.
+# Features: 
+#   1. Determine number of questions.
+#   2. Determine math symbols. (+, -)
+#   3. Generate question by random number and symbols.
 #   4. Check answer.
 #   5. Summary score.
 #   6. Report Score.
 # Version: beta1
 # """
 
+import sys
 import os
 import random
 
@@ -22,6 +23,12 @@ import random
 def funcClearScreen():
     # print "\n" * 50
     os.system("clear")
+# ========================================
+
+# bye-bye function
+def funcByeBye():
+    print "\n\nBye-Bye!" # say good bye
+    sys.exit() # and exit program
 # ========================================
 
 # function check input number only
@@ -76,7 +83,7 @@ def main():
     funcClearScreen() # Clear screen
 
     print "Are you raedy for burn your brain?"
-    print "(Press Ctrl-c to quit program)"
+    print "(Press Ctrl-c to quit program.)"
     print
     print "Practice Settings"
     print "================="
@@ -112,8 +119,11 @@ def main():
     else:
         print "You do not define math symbols."
         print "Come back when you ready."
-        quit()
+        funcByeBye()
 # ========================================
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        funcByeBye()
